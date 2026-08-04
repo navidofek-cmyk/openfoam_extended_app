@@ -44,6 +44,20 @@ převedený na **stlačitelný** řešič **`rhoPorousMRFPimpleFoam`**:
 ./Allrun          # m4 → blockMesh → transformPoints → GGI zóny → rhoPorousMRFPimpleFoam
 ```
 
+Nemáš-li foam-extend nainstalovaný, spusť to jedním příkazem v Docker image
+(potřebuje Docker + přístup na Docker Hub):
+
+```sh
+./run-in-docker.sh
+# nebo jiný image:
+FE_IMAGE=dicehub/openfoam:foam-extend-4.1 ./run-in-docker.sh
+```
+
+> Pozn.: ustálený stlačitelný MRF řešič `rhoPorousMRFSimpleFoam` ve foam-extend 4.0/4.1
+> **neexistuje** (ověřeno ve zdrojích) — proto je case transientní `rhoPorousMRFPimpleFoam`
+> dojetý do kvazi-ustáleného stavu. Pro čistě ustálený běh by šlo použít `rhoSimpleFoam`,
+> ten ale nemá MRF (rotaci oběžného kola).
+
 `Allrun` postupně:
 
 1. `m4 blockMeshDict.m4 > blockMeshDict` a `blockMesh` — vytvoří síť tří bloků včetně cellZone `rotor`.
