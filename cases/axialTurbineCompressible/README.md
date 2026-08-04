@@ -11,6 +11,11 @@ Osové proudění vstupuje shora (`GVINLET`, `U = (0 0 -1)`), prochází rozvád
 rotujícím oběžným kolem (MRF zóna `rotor`, `omega = -10 rad/s` kolem osy z) a
 odchází savkou (`DTOUTLET`).
 
+![Meridionální řez turbínou](../../docs/turbine_meridional.svg)
+
+*Meridionální (z–r) řez vykreslený z reálných vrcholů `blockMeshDict`: hub r=0.05 m,
+shroud r=0.10 m, tři GGI-spojené komponenty, osa proudění −z.*
+
 ## Odkud to je a co bylo změněno
 
 Případ vznikl spojením dvou tutoriálů z **foam-extend 4.0**:
